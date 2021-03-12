@@ -1,0 +1,3 @@
+[submodule "course-proj"]
+	path = course-proj
+	url = ./InitialCode
