@@ -1,0 +1,4 @@
+.recipeList {
+    min-height: 90vh;
+    display: grid;
+}
