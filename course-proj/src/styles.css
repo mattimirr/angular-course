@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: PopLight;
+    src: url('./assets/fonts/Poppins-LightItalic.ttf');
+}
+
+@font-face {
+    font-family: PopRegular;
+    src: url('./assets/fonts/Poppins-Regular.ttf');
+}
+
+body {
+    font-family: PopLight;
+}
+
+.recipe-body {
+    color: white;
+    background: radial-gradient(rgb(94, 124, 221), rgba(11, 16, 35, 1));
+}
