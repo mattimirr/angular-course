@@ -10,3 +10,11 @@ img {
     position: relative;
     max-height: 300px;
 }
+
+.dropdown-menu {
+    position: absolute;
+}
+
+.button-group {
+    position: relative;
+}
