@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   loadedComponent = 'recipe';
+
   onNavigate(component: string) {
     this.loadedComponent = component;
   }
