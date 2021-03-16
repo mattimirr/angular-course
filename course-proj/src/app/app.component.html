@@ -1,11 +1,9 @@
-<app-header></app-header>
-<div class="main">
-    <div class="row page">
-        <div class="recipes">
-            <app-recipes></app-recipes>
-        </div>
-        <div class="shopping-List">
-            <app-shopping-list></app-shopping-list>
+<div class="container">
+    <app-cockpit></app-cockpit>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <app-server-element *ngFor="let serverElement of serverElements"></app-server-element>
         </div>
     </div>
 </div>
