@@ -1,0 +1,12 @@
+.img-responsive {
+    max-height: 50px;
+}
+
+.rec {
+    color: white;
+}
+
+img {
+    position: relative;
+    max-height: 300px;
+}

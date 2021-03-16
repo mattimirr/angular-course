@@ -1,13 +1,5 @@
 .page {
     min-height: 90vh;
     display: grid;
-    grid-template-columns: 5% 1fr 1fr 1fr 1fr 5%;
-}
-
-.recipes {
-    grid-column: 2/4;
-}
-
-.shopping-List {
-    grid-column: 4/6;
+    grid-template-rows: 0% 30% 40% 5%;
 }
