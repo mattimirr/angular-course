@@ -22,3 +22,7 @@ img {
 .button-group {
     position: relative;
 }
+
+.acursor {
+    cursor: pointer;
+}
