@@ -1,1 +1,16 @@
-export class ShoppingListService { }
+import { Ingredient } from "../shared/ingredient.model";
+
+export class ShoppingListService {
+    private ingredients: Ingredient[] = [
+        new Ingredient('Buns', 2), new Ingredient('Chicken', 1), new Ingredient('Ramen buns', 1),
+        new Ingredient('Minced Meat in kilograms', 1)
+    ];
+
+    getIngredients() {
+        return this.ingredients.slice();
+    }
+
+    addIngredient(ingredient: Ingredient) {
+        this.ingredients.push(ingredient);
+    }
+}
