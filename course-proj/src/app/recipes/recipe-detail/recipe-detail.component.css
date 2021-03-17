@@ -6,6 +6,10 @@
     color: white;
 }
 
+li {
+    color: black;
+}
+
 img {
     position: relative;
     max-height: 300px;
