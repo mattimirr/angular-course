@@ -26,3 +26,7 @@ body {
     color: white;
     background: radial-gradient(rgba(94, 124, 221, 1), rgba(11, 16, 35, 1));
 }
+
+.cursor {
+    cursor: pointer;
+}
