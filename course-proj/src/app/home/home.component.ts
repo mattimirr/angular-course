@@ -12,10 +12,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  onLoadServers() {
+  onLoadServers(id: number) {
     //calculations
     //navigate
-    this.router.navigate(['/servers']);
+    this.router.navigate(['/servers', id, 'edit']);
   }
 
 }
