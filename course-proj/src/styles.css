@@ -21,12 +21,14 @@
 body {
     font-family: PopLight;
     min-height: 90vh;
-    display: grid;
-    grid-template-rows: 0% 30% 40% 5%;
     color: white;
     background: radial-gradient(rgba(94, 124, 221, 1), rgba(11, 16, 35, 1));
 }
 
 .cursor {
     cursor: pointer;
+}
+
+.recipeDetail {
+    min-height: 90vh;
 }
