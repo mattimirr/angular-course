@@ -6,29 +6,29 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { EditServerComponent } from "./servers/edit-server/edit-server.component";
 import { ServerComponent } from "./servers/server/server.component";
 import { UsersComponent } from "./users/users.component";
+import { AuthGuard } from "./auth-guard.service";
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     {
-      path: 'users', component: UsersComponent, children: [
-  
-        { path: ':id/:name', component: UsersComponent }
-      ],
+        path: 'users', component: UsersComponent, children: [
+
+            { path: ':id/:name', component: UsersComponent }
+        ],
     },
     {
-      path: 'servers', component: ServerComponent, children: [
-  
-        { path: ':id', component: ServerComponent },
-        { path: ':id/edit', component: EditServerComponent }
-      ]
+        path: 'servers', canActivate: [AuthGuard], component: ServerComponent, children: [
+            { path: ':id', component: ServerComponent },
+            { path: ':id/edit', component: EditServerComponent }
+        ]
     },
     { path: 'not-found', component: PageNotFoundComponent },
     { path: '**', redirectTo: '/not-found' }
-  ];
-  
-  
+];
+
+
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
