@@ -1,9 +1,4 @@
-<app-header (componentSelected)="onNavigate($event)"></app-header>
+<app-header></app-header>
 <div class="container page">
-    <div class="recipes" *ngIf="loadedComponent === 'recipe'">
-        <app-recipes></app-recipes>
-    </div>
-    <div class="shopping-list" *ngIf="loadedComponent === 'shopping-list'">
-        <app-shopping-list></app-shopping-list>
-    </div>
+    <router-outlet></router-outlet>
 </div>
