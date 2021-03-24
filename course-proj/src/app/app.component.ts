@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -16,5 +16,10 @@ export class AppComponent implements OnInit {
       'email': new FormControl(null),
       'gender': new FormControl('male')
     });
+  }
+
+  onSubmit() { 
+    console.log(this.signupForm);
+    
   }
 }
