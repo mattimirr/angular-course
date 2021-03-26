@@ -34,4 +34,8 @@ export class PostsService {
                 return postsArray;
             }));
     }
+
+    deletePosts() {
+        return this.http.delete('https://ng-angular-project-7a530-default-rtdb.firebaseio.com/posts.json');
+    }
 }
