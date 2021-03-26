@@ -3,8 +3,6 @@ import { tap } from "rxjs/operators";
 
 export class AuthInterceptorService implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler) {
-        console.log('Request is on its way');
-        console.log(request.url);
         const modifiedRequest = request.clone({
             headers: request.headers.append('Auth', 'abc')
         });
