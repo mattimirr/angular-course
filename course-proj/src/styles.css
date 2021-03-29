@@ -32,3 +32,11 @@ body {
 .recipeDetail {
     min-height: 90vh;
 }
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: #5eddbf !important;
+    color: rgba(11, 16, 35, 1) !important;
+}
