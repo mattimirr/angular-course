@@ -4,6 +4,7 @@
 
 input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
-    border: 1px solid red;
-    background-color: pink;
+    border-color: #ebccd1;
+    background-color: #f2dede;
+    color: #a94442;
 }
