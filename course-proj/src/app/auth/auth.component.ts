@@ -31,11 +31,10 @@ export class AuthComponent {
         this.isLoading = true;
 
         if (this.isLoginMode) {
-            authObservable = this.authService.logIn(email, password);
+            authObservable = this.authService.login(email, password);
         } else {
-            authObservable = this.authService.signUp(email, password);
+            authObservable = this.authService.signup(email, password);
         }
-
         authObservable.subscribe(resData => {
             this.isLoading = false;
             this.router.navigate(['./recipes']);
@@ -43,6 +42,11 @@ export class AuthComponent {
             this.error = errorMessage;
             this.isLoading = false;
         });
+
+    }
+
+    onHandleError() {
+        this.error = null;
     }
 
 }
