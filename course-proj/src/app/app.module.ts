@@ -1,31 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { DropDownDirective } from './shared/dropdown.directive';
-import { RecipeService } from './recipes/recipe.service';
-import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthComponent } from './auth/auth.component';
-import { LoadingSpinner } from './shared/loading-spinner/loading-spinner.component';
-import { AuthInterceptor } from './auth/auth-interceptor.service';
-import { AlertComponent } from './shared/alert/alert.component';
-import { PlaceholderDirective } from './shared/placeholder.directive';
 import { RecipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DropDownDirective,
     AuthComponent,
-    LoadingSpinner,
-    AlertComponent,
-    PlaceholderDirective
   ],
   imports: [
     BrowserModule,
@@ -34,9 +25,10 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     HttpClientModule,
     AppRoutingModule,
     RecipesModule,
-    ShoppingListModule
+    ShoppingListModule,
+    SharedModule,
+    CoreModule
   ],
-  providers: [RecipeService, ShoppingListService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
