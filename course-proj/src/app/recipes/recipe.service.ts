@@ -15,6 +15,7 @@ export class RecipeService {
 
   constructor(private store: Store<fromApp.AppState>) { }
 
+  
 
   getRecipes() {
     return this.recipes.slice();
@@ -44,9 +45,5 @@ export class RecipeService {
     this.recipesChanges.next(this.recipes.slice());
   }
 
-  setRecipes(recipes: Recipe[]) {
-    this.recipes = recipes;
-    this.recipesChanges.next(this.recipes.slice());
-  }
 
 }
