@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { RecipeService } from '../recipe.service';
 import * as fromApp from '../../store/app.reducers'
 import * as RecipeActions from '../store/recipe.actions'
 import { map } from 'rxjs/operators';
