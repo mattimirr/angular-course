@@ -161,8 +161,8 @@ export class AuthEffects {
           token: loadedUser.token,
           expirationDate: new Date(userData._tokenExpirationDate)
         }));
-        return { type: 'Damm' };
       }
+      return { type: 'Damm' };
     })
   ))
 
