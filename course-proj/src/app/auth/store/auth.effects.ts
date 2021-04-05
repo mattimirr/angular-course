@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment';
 
 import * as AuthActions from './auth.actions';
 import { User } from '../user.model';
+import { AuthService } from '../auth.service';
 
 export interface AuthResponseData {
   kind: string;
@@ -70,6 +71,9 @@ export class AuthEffects {
           }
         )
         .pipe(
+          tap(respData => {
+            this.authService.setLogoutTimer(+respData.expiresIn * 1000);
+          }),
           map(resData => {
             return handleAuthentication(resData);
           }),
@@ -82,7 +86,7 @@ export class AuthEffects {
 
 
   authRedirect = createEffect(() => this.actions$.pipe(
-    ofType(AuthActions.authenticateSuccess, AuthActions.logout),
+    ofType(AuthActions.authenticateSuccess),
     tap(() => {
       this.router.navigate(['/']);
     })
@@ -91,7 +95,9 @@ export class AuthEffects {
   authLogout = createEffect(() => this.actions$.pipe(
     ofType(AuthActions.logout),
     tap(() => {
+      this.authService.clearLogoutTimer();
       localStorage.removeItem('userData');
+      this.router.navigate(['/auth']);
     })
   ), { dispatch: false });
 
@@ -110,6 +116,9 @@ export class AuthEffects {
           }
         )
         .pipe(
+          tap(respData => {
+            this.authService.setLogoutTimer(+respData.expiresIn * 1000);
+          }),
           map(resData => {
             return handleAuthentication(resData);
           }),
@@ -141,17 +150,17 @@ export class AuthEffects {
       );
 
       if (loadedUser.token) {
+
+        const expirationDuration =
+          new Date(userData._tokenExpirationDate).getTime() -
+          new Date().getTime();
+        this.authService.setLogoutTimer(expirationDuration);
         return (AuthActions.authenticateSuccess({
           email: loadedUser.email,
           userId: loadedUser.id,
           token: loadedUser.token,
           expirationDate: new Date(userData._tokenExpirationDate)
         }));
-        // );
-        // const expirationDuration =
-        //   new Date(userData._tokenExpirationDate).getTime() -
-        //   new Date().getTime();
-        // this.autoLogout(expirationDuration);
         return { type: 'Damm' };
       }
     })
@@ -160,6 +169,7 @@ export class AuthEffects {
   constructor(
     private actions$: Actions,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 }
