@@ -1,12 +1,7 @@
 .img-responsive {
-    max-height: 50px;
-    max-width: 50px;
+    max-width: 60px;
 }
 
 .rec {
     margin-bottom: 10px;
-}
-
-img {
-    position: relative;
 }
