@@ -2,22 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { ReversePipe } from './reverse.pipe';
-import { SortPipe } from './sort.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SortPipe,
-    ReversePipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [SortPipe, ReversePipe],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
